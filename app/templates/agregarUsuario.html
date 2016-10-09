@@ -1,0 +1,70 @@
+<md-dialog aria-label="List dialog" class="customDialog">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Editar Evento</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+      <div class="md-dialog-content">
+        <div class="" layout="row">
+          <div class="contenedorInput" flex>
+            <md-input-container class="md-icon-float md-block">
+                <label class="customLabel">Nombre</label>
+                <md-icon><ng-md-icon icon="bookmark" style="fill: #757575"></ng-md-icon></md-icon>
+                <input required name="nombre" ng-model="evn.titulo">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <md-icon>
+                  <ng-md-icon icon="receipt" style="fill: #757575" ></ng-md-icon>
+                </md-icon>
+                <label>descripcion</label>
+                 <textarea class="decripcion" ng-model="evn.descripcion"  rows="4" md-select-on-focus></textarea>
+             </md-input-container>
+             <md-input-container style="margin:0; width:146px;">
+               <md-icon>
+                 <ng-md-icon icon="event" style="fill: #757575" ></ng-md-icon>
+               </md-icon>
+              <label>Fecha</label>
+              <input type=date name=“fechahora” ng-model="evn.start">
+              </md-input-container>
+              <md-input-container style="margin:0; margin-left:32px;">
+                <md-icon>
+                  <ng-md-icon icon="alarm" style="fill: #757575" ></ng-md-icon>
+                </md-icon>
+               <label>Hora</label>
+               <input type=time name=“fechahora” ng-model="evn.start">
+             </md-input-container>
+            <!-- <mdp-date-picker mdp-placeholder="Date" ng-model="evn.start"></mdp-date-picker>
+             <mdp-time-picker mdp-placeholder="Hora" ng-model="evn.start"></mdp-time-picker>-->
+          </div>
+          <div class=""flex>
+            <div layout="column" class="contImgCrop">
+               <label for="">Imagen</label>
+               <!--<img src="img/{{evn.imagen}}" alt="" style="padding:15px 0; width:100%"/>-->
+               <div class="imgCrop">
+                 <img-crop image="myImage" area-type="rectangle" result-image="myCroppedImage" url-blob="url" aspect-ratio="1.17" result-image-size='{w:136,h:116}'
+                   area-min-relative-size='{w:136,h:116}' result-image-format="format" result-blob="blob" result-image-quality="0.8"></img-crop>
+               </div>
+               <input type="file" id="fileInput" class="input-hidden"/>
+               <md-button class="md-raised md-primary" aria-label="SileInput" ng-click="updateFile()"> Subir Imagen
+               </md-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions class="actionesDialog">
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateEvent()" class="md-primary">
+          Aceptar
+         </md-button>
+    </md-dialog-actions>
+</md-dialog>

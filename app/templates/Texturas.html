@@ -1,0 +1,37 @@
+<md-dialog aria-label="List dialog" style="width:40%;">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Texturas</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+     <div class="md-dialog-content background-texture">
+            <md-grid-list
+              md-cols="6" md-cols-sm="2" md-cols-md="6" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="1:1"
+              md-gutter="15px" md-gutter-gt-sm="15px" >
+
+          <md-grid-tile ng-repeat="textura in listTexture"
+                        md-rowspan="2"
+                        md-colspan="2"
+                        md-colspan-sm="2"
+                        md-colspan-xs="2"
+                        ng-style="{'background-image':'url(img/texturas/{{textura}})'};"
+                        ng-click="changeTexture(textura)">
+          </md-grid-tile>
+        </md-grid-list>
+     </div>
+   </md-dialog-content>
+       <md-dialog-actions>
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateEvent()" class="md-primary">
+          Agregar
+         </md-button>
+      </md-dialog-actions>
+     </md-dialog>

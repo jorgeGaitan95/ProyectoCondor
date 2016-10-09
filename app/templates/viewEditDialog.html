@@ -1,0 +1,24 @@
+<md-dialog aria-label="List dialog" class="customDialog">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Editar Template</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" ng-include="getTemplate()">
+        <!--se Añaden las templates Dinamicamente-->
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateTempla()" class="md-primary">
+          Aceptar
+         </md-button>
+    </md-dialog-actions>
+</md-dialog>

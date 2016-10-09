@@ -1,0 +1,39 @@
+<md-dialog aria-label="List dialog" class="customDialog">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Editar Template</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content editTemplate1" >
+        <md-input-container class="md-icon-float md-block">
+            <label>Titulo</label>
+            <md-icon><ng-md-icon icon="bookmark" style="fill: #757575"></ng-md-icon></md-icon>
+            <input required name="nombre" ng-model="template.titulo">
+        </md-input-container>
+        <div layout="column" class="contImgCrop">
+           <label for="">Imagen</label>
+           <div class="imgCrop">
+             <img-crop image="myImage" area-type="rectangle" result-image="imagenEditada" aspect-ratio="2.45" url-blob="urlImagen"
+              result-image-size='{w: 383,h: 156}'area-min-relative-size='{w: 383,h: 156}'
+              result-image-format="format" result-blob="blob" result-image-quality="1"></img-crop>
+           </div>
+           <input type="file" id="fileInputimg" class="input-hidden"/>
+           <md-button class="md-raised md-primary" aria-label="SileInput" ng-click="updateFile()"> Subir Imagen
+           </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions class="actionesDialog">
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateTemplate()" class="md-primary">
+          Aceptar
+         </md-button>
+    </md-dialog-actions>
+</md-dialog>

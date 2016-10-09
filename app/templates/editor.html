@@ -1,0 +1,130 @@
+<div layout-fill layout="row">
+  <!--MAIN CONTENT-->
+  <div layout="column" class="relative" layout-fill role="main">
+    <div class="tablet">
+
+    </div>
+    <div id="contenedorTimeline" class="contenedorTimeline" ng-cloak>
+      <div class="fondoLoading" ng-if="loading">
+        <img src="img/loader1.gif" alt="" />
+      </div>
+      <md-toolbar class="md-hue-2 toolbarEditor">
+              <div class="md-toolbar-tools">
+                <h2>
+                  <span>Linea de tiempo: Biografia Gabriel Garcia Marquez</span>
+                </h2>
+                <span flex></span>
+                <span style="padding-right:8px;">Navegar</span>
+                <md-switch ng-model="edicion" aria-label="Switch 1">
+                    Editar
+                </md-switch>
+              </div>
+        </md-toolbar>
+        <div class="caja" id="contenedorGaleria">
+            <div class="header-caja">
+                <h3>Titulo del Evento:
+                    {{evento.titulo}}</h3>
+            </div>
+            <div flex class="body-caja" >
+                <div class="contenido-body" layout="row">
+                    <div class="contextoEvento" flex="25" layout="column">
+                      <div class="ce" ng-if="edicion" ng-class="por{{edicion}} ">
+                          <div class="btnAE1" ng-click="showDialog($event,'edit')">
+                            <ng-md-icon icon="mode_edit" style="fill: #fff" size="30"></ng-md-icon>
+                          </div>
+                        </div>
+                      <h4>Fecha:
+                            {{evento.fecha}}
+                        </h4>
+                        <div class="imgContextoEvento">
+                        <img src="{{evento.imagen}}" class="img-evento" alt="">
+                        </div>
+                        <div class="slide-descripcion" flex>
+                          <p>{{evento.descripcion}}</p>
+                        </div>
+                    </div>
+                    <div class="contendor-galeria" flex>
+                        <ul rn-carousel rn-carousel-index="carouselIndex" rn-carousel-locked='true' rn-carousel-controls rn-carousel-transition="slide" rn-carousel-buffered class="slider-galeria">
+                            <li ng-repeat="slide in evento.galeria track by $index">
+                              <md-card class="{{slide.tipo}} cardSlider" class="md-whiteframe-z1" ng-include="getIncludeFile(slide.tipo)" >
+                              </md-card>
+                            </li>
+                        </ul>
+                        <div rn-carousel-indicators ng-if="evento.galeria.length > 1" slides="evento.galeria" rn-carousel-index="carouselIndex" class="indicacoresSlider"></div>
+                        <div class="botonesSliderDisable">
+                          <span class="rn-carousel-control rn-carousel-control-prev disable" ng-if='carouselIndex===0'></span>
+                          <span class="rn-carousel-control rn-carousel-control-next disable" ng-if='carouselIndex===evento.galeria.length-1'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-fondo" ng-style="miStyle">
+            <!--<div class="left botonEvento" ng-click="prevEvent()">
+                <div class="imgBoton"></div>
+            </div>
+            <div class="right botonEvento" ng-click="nextEvent()">
+                <div class="imgBoton"></div>
+            </div>-->
+        </div>
+        <div class="zoom">
+            <div class="zoom-out" ng-click="zoom(0.2)">
+              <md-tooltip md-direction="top">
+                zoom-out
+              </md-tooltip>
+            </div>
+            <div class="zoom-in" ng-click="zoom(-0.2)">
+              <md-tooltip md-direction="top">
+                zoom-in
+              </md-tooltip>
+            </div>
+        </div>
+        <div class="textEvnInfo" ng-if="showMensajeEventos">
+          {{mensajeEventos}}
+        </div>
+        <div class="movimiento">
+          <div class="moveup" ng-click="asha(30)">
+
+          </div>
+          <div class="movedown" ng-click="asha(-30)">
+
+          </div>
+        </div>
+        <div class="cont1">
+          {{evntsIzq}}
+        </div>
+        <div class="cont2">
+            {{evntsDerecha}}
+        </div>
+        <div class="left botonEvento" ng-click="prevEvent()" ng-class="{'disable':evntsIzq==0}">
+            <div class="imgBoton"></div>
+        </div>
+        <div class="right botonEvento" ng-click="nextEvent()" ng-class="{'disable':evntsDerecha==0}">
+            <div class="imgBoton"></div>
+        </div>
+        <div class="accionesEvento" ng-if="edicion">
+          <div layout="row" layout-align="center center" layout-wrap>
+            <md-button class="md-fab md-mini botonFabA" ng-class="{'select':hasSelect}" aria-label="Use Android" ng-click="showDialog($event,'edit')">
+              <md-tooltip md-direction="top">
+                Editar Evento
+              </md-tooltip>
+              <ng-md-icon icon="edit" style="fill: #4c4c4c" size='26'></ng-md-icon>
+            </md-button>
+            <md-button class="md-fab md-mini botonFabA" ng-class="{'select':hasSelect}" aria-label="Use Android" ng-click="duplicarEvento()">
+              <md-tooltip md-direction="top">
+                Dupicar Evento
+              </md-tooltip>
+              <ng-md-icon icon="content_copy" style="fill: #4c4c4c" size='26'></ng-md-icon>
+            </md-button>
+          </div>
+        </div>
+        <div id="visualization" class="containerTimeline"></div>
+        <md-button ng-if="edicion" class="md-fab md-mini  botonFabRight botonFab" aria-label="Eat cake" ng-click="showDialog($event,'add')">
+            <md-tooltip md-direction="top">
+              Agregar Evento
+            </md-tooltip>
+            <ng-md-icon icon="add" style="fill: #4c4c4c" size='26'> </ng-md-icon>
+        </md-button>
+    </div>
+  </div>
+</div>

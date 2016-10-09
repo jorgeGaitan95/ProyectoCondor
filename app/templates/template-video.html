@@ -1,0 +1,64 @@
+<div class="asha" ng-if="edicion">
+  <div class="contenidoEditTemplate">
+    <div class="botonesTemplates">
+      <div class="btntempl" ng-click="showDialogTemplate($event)">
+        <ng-md-icon icon="mode_edit" style="fill: #fff" size="30"></ng-md-icon>
+        <md-tooltip md-direction="top">
+          Editar
+        </md-tooltip>
+      </div>
+      <div class="btntempl" ng-click="duplicateTemplate()">
+        <md-tooltip md-direction="top">
+          Duplicar
+        </md-tooltip>
+        <ng-md-icon icon="content_copy" style="fill: #fff" size="30"></ng-md-icon>
+      </div>
+      <div style="height:28px;float:left;margin:0 15px;">
+      </div>
+      <div class="btntempl" ng-click="eliminarTemplate()">
+        <md-tooltip md-direction="top">
+          Eliminar
+        </md-tooltip>
+        <ng-md-icon icon="delete" style="fill: #fff" size="30"></ng-md-icon>
+      </div>
+    </div>
+    <div class="divisorEdtTemplate">
+    </div>
+    <div class="textViewEditTemplate">
+      <label class="labelAddTemplate">Para agregar una nueva vista:</label>
+      <div class="contAddTemplate">
+        <div class="btntempl" style="    background-image: url(img/widgetAtlas.png);
+    background-position: -251px -284px;" ng-click="addTemplate('tipo3_Texto')">
+          <md-tooltip md-direction="top">
+            Solo texto
+          </md-tooltip>
+        </div>
+        <div class="btntempl" style="background-image: url(img/widgetAtlas.png);
+    background-position: -251px -321px;" ng-click="addTemplate('tipo2_Img')">
+          <md-tooltip md-direction="top">
+            Imagen
+          </md-tooltip>
+        </div>
+        <div class="btntempl" style="background-image: url(img/widgetAtlas.png);
+    background-position: -251px -245px;" ng-click="addTemplate('tipo1_Img_Texto')">
+          <md-tooltip md-direction="top">
+            Texto e Imagen
+          </md-tooltip>
+        </div>
+        <div class="btntempl" style="background-image: url(img/widgetAtlas.png);
+    background-position: -251px -356px;" ng-click="addTemplate('tipo4_video')">
+          <md-tooltip md-direction="top">
+            Video
+          </md-tooltip>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="item item-divider cabecera" layout="row">
+  <label>Vista [{{carouselIndex+1}}/{{evento.galeria.length}}] :</label>
+  <span>{{slide.titulo}}</span>
+</div>
+<div class="content-slider" layout="column">
+  <video-tempate template={{slide.url}} val={{slide.id}}></video-tempate>
+</div>

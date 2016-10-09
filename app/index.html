@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="css/vis.css" rel="stylesheet">
+    <script id="item-template" type="text/x-handlebars-template">
+            <div class="evento">
+                <h3 class="evento-titulo">
+                    {{titulo}}
+                </h3>
+                <section class="evento-seccion">
+                    <div class="img-seccion">
+                        <img src="{{imagen}}">
+                    </div>
+                    <div class="descripcion-seccion">
+                        <h4>
+                            Fecha:
+                            {{fecha}}
+                        </h4>
+                        <p class="textoEvento">
+                            {{descripcion}}
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <!--<div class="accionesEvento">
+              <div class="acione"></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>-->
+        </script>
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css" charset="utf-8">
+    <link href="css/angular-carousel.css" rel="stylesheet" type="text/css" />
+    <link href="lib/mdPickers/dist/mdPickers.css" rel="stylesheet" type="text/css" />
+    <link href="lib/ng-img-crop-full-extended/compile/unminified/ng-img-crop.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body ng-app="app">
+    <ui-view name="menuContent">
+
+    </ui-view>
+    <script src="lib/handlebars/handlebars.min.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-carousel/dist/angular-carousel.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/angular-aria/angular-aria.min.js"></script>
+        <script src="lib/angular-material/angular-material.min.js"></script>
+        <script src="lib/angular-material-icons/angular-material-icons.min.js"></script>
+        <script src="js/vis.js"></script>
+        <script src="lib/pouchdb/dist/pouchdb.js"></script>
+        <script src="lib/angular-touch/angular-touch.min.js"></script>
+        <script src="lib/moment/min/moment.min.js"></script>
+        <script src="lib/mdPickers/dist/mdPickers.js"></script>
+        <script src="lib/jwplayer/jwplayer.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="lib/ng-img-crop-full-extended/compile/unminified/ng-img-crop.js"></script>
+        <script src="lib/ng-file-upload/ng-file-upload.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/directives.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<md-dialog aria-label="List dialog" class="customDialog">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Editar Template</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content editTemplate2">
+        <div class="" layout="row">
+          <div class="contenedorInput" flex>
+            <md-input-container class="md-icon-float md-block">
+                <label>Titulo</label>
+                <md-icon><ng-md-icon icon="bookmark" style="fill: #757575"></ng-md-icon></md-icon>
+                <input required name="nombre" ng-model="template.titulo">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <md-icon>
+                  <ng-md-icon icon="receipt" style="fill: #757575" ></ng-md-icon>
+                </md-icon>
+                <label>Descripcion</label>
+                 <textarea ng-model="template.descripcion" class="decripcion" rows="7" md-select-on-focus></textarea>
+             </md-input-container>
+          </div>
+          <div class="" flex>
+            <div class="contImgCrop" layout="column">
+               <label for="">Imagen</label>
+               <div class="imgCrop">
+                 <img-crop image="myImage" area-type="rectangle" aspect-ratio="0.9" result-image="imagenEditada" url-blob="urlImagen" result-image-size='{w:140,h:156}'
+                   area-min-relative-size='{w:140,h:156}' result-image-format="format" result-blob="blob" result-image-quality="1"></img-crop>
+               </div>
+               <input type="file" id="fileInputimg" class="input-hidden" />
+               <md-button class="md-raised md-primary" ng-click="updateFile()"> Subir Imagen
+               </md-button>
+             </div>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions class="actionesDialog">
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateTemplate()" class="md-primary">
+          Aceptar
+         </md-button>
+    </md-dialog-actions>
+</md-dialog>

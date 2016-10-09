@@ -1,0 +1,44 @@
+<md-dialog aria-label="List dialog" class="customDialog">
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Editar Template</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="closeDialog()">
+          <ng-md-icon icon="close" style="fill: #fff" size="24"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div class="" layout="row">
+          <div class="contenedorInput" flex>
+              <md-input-container class="md-icon-float md-block">
+                  <label>Titulo</label>
+                  <md-icon><ng-md-icon icon="bookmark" style="fill: #757575"></ng-md-icon></md-icon>
+                  <input required name="nombre" ng-model="template.titulo">
+              </md-input-container>
+              <md-input-container class="md-icon-float md-block">
+                  <label>Enlace</label>
+                  <md-icon><ng-md-icon icon="link" style="fill: #757575"></ng-md-icon></md-icon>
+                  <input required name="nombre" ng-model="template.url">
+              </md-input-container>
+            </div>
+            <div class="" flex>
+              <div layout="column" class="contImgCrop">
+                 <label for="">Video</label>
+                 <div id="previewVideo">
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions class="actionesDialog">
+         <md-button ng-click="closeDialog()" class="md-primary">
+          Cancelar
+         </md-button>
+         <md-button ng-click="updateTemplate()" class="md-primary">
+          Aceptar
+         </md-button>
+    </md-dialog-actions>
+</md-dialog>
